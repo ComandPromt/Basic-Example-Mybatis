@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap >
+	<select id="getCoche" resultClass="Coche.Coche">
+      SELECT 
+          id as id,
+          MARCA as marca,
+          MATRICULA as matricula,
+          fechamatricula as fechaMatricula,
+          idpropietario as idPropietario
+       FROM COCHE
+	   WHERE id = #valor#
+	</select>
+
+	<select id="getCoches" resultClass="Coche.Coche">
+      SELECT 
+          id as id,
+          MARCA as marca,
+          MATRICULA as matricula,
+          fechamatricula as fechaMatricula,
+          idpropietario as idPropietario
+       FROM COCHE
+	</select>
+	
+	<select id="getHashCoche" resultClass="java.util.Hashtable">
+      SELECT 
+          id as id,
+          MARCA as marca,
+          MATRICULA as matricula,
+          fechamatricula as fechaMatricula,
+          idpropietario as idPropietario
+       FROM COCHE
+	   WHERE id = #valor#
+	</select>
+	
+	<insert id="insertCoche" >
+	   INSERT INTO COCHE VALUES (
+	   null,
+	   #marca#,
+	   #matricula#,
+	   #fechaMatricula#,
+	   #idPropietario#)
+	</insert>
+	
+	<update id="updateCoche" parameterClass="Coche.Coche">
+	   UPDATE COCHE SET
+          MARCA = #marca#,
+          MATRICULA = #matricula#,
+          fechamatricula = #fechaMatricula#,
+          idpropietario = #idPropietario#
+	   WHERE
+	      id=#id#   
+	</update>
+	
+	<delete id="removeCoche">
+	   DELETE FROM COCHE WHERE id=#valor#
+	</delete>
+</sqlMap>
