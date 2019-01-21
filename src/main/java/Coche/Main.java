@@ -41,7 +41,7 @@ public class Main {
 			 * 
 			 * Map hashCoche2 = (Map) sqlMap.queryForObject("getHashCoche", 3);
 			 * 
-			 * sqlMap.delete("removeCoche", 4);
+			 * sqlMap.delete("removeCoche", 2);
 			 */
 		} catch (Exception e) {
 			e.printStackTrace();
